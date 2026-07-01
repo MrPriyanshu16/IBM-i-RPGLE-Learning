@@ -1,0 +1,23 @@
+**free
+dcl-s str char(20);
+dcl-s i packed(2:0) inz(1);
+dcl-s j packed(2:0);
+dcl-s ch char(1);
+dcl-s duplicate char(20);
+duplicate = '';
+dsply 'Enter Your String: ' '' str;
+dow i <= %len(%trim(str));
+    ch = %subst(str : i :1);
+    j = i + 1;
+    dow j <= %len(%trim(str));
+        if ch = %subst(str : j :1);
+            duplicate = %trim(duplicate) + ch;
+            leave;
+        endif;
+        j = j + 1;
+    enddo;
+    i = i + 1;
+enddo;
+dsply ('duplicate:' + duplicate);
+*inlr = *on;
+return;

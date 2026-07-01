@@ -1,0 +1,13 @@
+**FREE
+DCL-S NUM PACKED(3:0);
+DCL-S I PACKED(3:0) inz(1);
+DCL-S FACT PACKED(4:0) INZ(1);
+DSPLY 'ENTER YOU NUMBER' ' ' NUM;
+DOW I <= NUM;
+    FACT = FACT * I;
+    I = I + 1;
+ENDDO;
+DSPLY ('Number: ' + %char(NUM));
+DSPLY ('FACTORIAL OF NUMBER:' + %CHAR(FACT));
+*INLR = *ON;
+RETURN;

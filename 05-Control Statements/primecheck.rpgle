@@ -1,0 +1,22 @@
+**free
+dcl-s num packed(3:0);
+dcl-s I packed(3:0) inz(2);
+dcl-s Isprime ind inz(*on);
+dsply 'Enter a number:' ' 'num;
+if num <= 1;
+   Isprime = *off;
+endif;
+dow I < num;
+    if %rem(num : I) = 0;
+        Isprime = *off;
+        leave;
+    endif;
+    I = I + 1;
+enddo;
+if Isprime;
+   dsply 'Entered Number is prime';
+else;
+   dsply 'Entered Number is not prime';
+endif;
+*inlr = *on;
+return;
